@@ -1,0 +1,24 @@
+"""Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+Note that you must do this in-place without making a copy of the array.
+
+Input: nums = [0,1,0,3,12]
+Output: [1,3,12,0,0]
+ 
+ 
+ """
+
+def move_zeros(arr):
+    l = 0
+    for r in range(len(arr)):
+        if arr[r]:
+            arr[l], arr[r] = arr[r], arr[l]
+            l +=1
+    return arr
+
+
+
+
+
+arr1 = [0,1,0,3,12]
+print(move_zeros(arr1))
