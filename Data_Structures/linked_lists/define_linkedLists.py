@@ -77,13 +77,7 @@ class MyLinkedList:
 
 
 
-def test(x):
-    if x != 1:
-        return -1
-    return 1
-    
-x = 2
-print(test(x))
+
 
 
     
