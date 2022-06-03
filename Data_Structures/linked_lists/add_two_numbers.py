@@ -34,13 +34,15 @@ def addTwoNumber(l1, l2):
         val2 = l2.val if l2 else 0
         carry, out = divmod(l1 + l2 + carry, 10)
 
-        result_tail.next = ListNode(out)
+        result_tail.next = ListNode(out)  # add node after result_node (sentinel)
         result_tail = result_tail.next
 
+        # update pointers...
         l1 = l1.next if l1 else None
         l2 = l2.next if l2 else None
 
+    # return tail.next
     return result.tail
-    
+
 
 
