@@ -42,7 +42,7 @@ def isValid1(s):
         if char in "([{":
             stack.append(char)
         else:
-            top_element = stack.pop() if stack else "#"
+            top_element = stack.pop() if stack else "#"      # putting hash to claim false later...
         
         if mapping[char] != top_element:
             return False

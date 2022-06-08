@@ -16,26 +16,6 @@ divide main problem to sub solution using bottomup dyanmic approach. Explain in 
 """
 
 # Dynamic programming approach...
-from lib2to3.pgen2.pgen import DFAState
-
-
-def numSqure(n):
-
-    dp = [n] * (n+1)
-    dp[0] = 0
-
-    for target in range(1,n+1):
-        for s in range(1, target+1):
-            squre = s*s
-            if target - squre < 0:
-                break
-            dp[target] = min(dp[target], dp[target - squre])
-    return dp[n]
-
-
-
-
-
 def numSqures(n):
 
     dp = [n] * (n+1)
@@ -60,4 +40,18 @@ def numSqures(n):
     # time complexity = O(n*n^1/2), space complexity = O(n)
 
 
+# brute force approach...
+
+
+
+
+
+
+
+
+
+
+
+# execution...
 print(numSqures(12))
+

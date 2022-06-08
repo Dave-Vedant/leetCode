@@ -3,8 +3,9 @@ def Node(val, negithbors):
     neighbors = []
 
 def cloneGraph(node):
-    oldToNew = {}
+
     def dfs(node):
+        oldToNew = {}
         if node in oldToNew:
             return oldToNew[node]
 
@@ -17,6 +18,8 @@ def cloneGraph(node):
 
     return dfs(node)
         
+
+# Need to understand properly, can not understand the questions, why we need it in real life
 
 
 
