@@ -43,7 +43,7 @@ def singleNumber(nums):
 def singleNumber(nums):
     a = 0
     for i in nums:
-        a ^= 1         # ^ is XOR operation... [1010 ^ 1010 ==> 0000 ]
+        a ^= i         # ^ is XOR operation... [1010 ^ 1010 ==> 0000 ]
 
     return a
     # time complexity = O(N), space complexity = O(1)
