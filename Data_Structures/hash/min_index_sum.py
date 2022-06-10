@@ -26,13 +26,6 @@ def findRestaurant(list1, list2):
                 result.append(v)
     return result
 
-    
-
-
-
-
-
-
 list1 = ["Shogun","Tapioca Express","Burger King","KFC"]
 list2 = ["KFC","Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]
 print(findRestaurant(list1, list2))
