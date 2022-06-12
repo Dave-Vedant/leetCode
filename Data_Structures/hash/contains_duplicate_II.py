@@ -1,33 +1,25 @@
+"""
+Given an integer array nums and an integer k, 
+return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.
 
+Input: nums = [1,2,3,1], k = 3
+Output: true
+"""
 
-
-
-
-
-# Naive Linear Approach:
-
-def containsNearbyDuplicate(nums, k):
-    for i in range(len(nums)):
-        for j in range(0, i):
-            if nums[i] == nums[j]:
-                return True
-    return False
-
-    #time complexity = O(N*min(K,N)), space complexity = O(1)
 
 # Hashmap solution
-def contansNearbyDuplicate(nums, K):
+def containsNearbyDuplicate(nums, K):
     hash_map = {} 
-    for i,v in enumerate(nums):
-        if (v in hash_map) and (i - hash_map[v] <= K):
+    for index, value in enumerate(nums):
+        if (value in hash_map) and (index - hash_map[value] <= K):
             return True
-        hash_map[v] = i
+        hash_map[value] = index
     return False
 
     # time complexity O(N), space complexity = O(min(N,K))
     
 
-# jexecution:
+# execution:
 
 nums = [1,2,3,1,2,3]
 K =2

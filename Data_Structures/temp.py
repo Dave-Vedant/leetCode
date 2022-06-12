@@ -1,1 +1,1 @@
-print("funny")
+print(0!)
