@@ -9,44 +9,35 @@ Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without
 
 """
 ## Hash Set:
-
-def isValidSudoku1(board):
-    N = 9
+from collections import defaultdict
+def isValidSudoku(board):
+    N = 9      # hard coding the value as we know
 
     # hash sets for record the states (rows, columns, box)
-    rows = [set() for _ in range(N)]
-    cols = [set() for _ in range(N)]
-    boxes = [set() for _ in range(N)]
+    rows = defaultdict(set)
+    cols = defaultdict(set)
+    boxes = defaultdict(set)    # (r/3, c/3)
 
     for r in range(N):
         for c in range(N):
             val = board[r][c]
-            print(val)
-
             if val == ".":
                 continue
 
-            if val in rows:          # here , rows is hashmap so if the value if for first time, its ok, for repetatio it goes for False...
+            if (val in rows[r]) or (val in cols[c]) or (val in boxes[(r//3, c//3)]):
                 return False
-            rows[r].add(val)
-
-            if val in cols:
-                return False
+            
             cols[c].add(val)
+            rows[r].add(val)
+            boxes[(r//3, c//3)].add(val)
 
-            idx = (r//3) * 3 + c //3
-            if val in boxes[idx]:
-                return False
-            boxes[idx].add(val)
-            print("_+_+_+_+_")
-    
     return True
-    #  Time complexity  = O(N*N), Space complexity = O(N*N)
+    #  Time complexity  = O(N^2), Space complexity = O(N^2) = here, N=9.
 
 
 # Array Fixed Length
 
-def isValidSudoku(board):
+def isValidSudoku1(board):
     N = 9
 
     rows = [[0] * N for _ in range(N)]          # [0,0,0,0,0,0,0,0]
@@ -82,7 +73,7 @@ def isValidSudoku(board):
 
 
 ## Bit Masking:
-def isValidSudoku(board):
+def isValidSudoku2(board):
     N = 9
 
     rows = [0] * N
@@ -127,5 +118,13 @@ board = [["5","3",".",".","7",".",".",".","."]
 ,[".",".",".","4","1","9",".",".","5"]
 ,[".",".",".",".","8",".",".","7","9"]]
 
-
-print(isValidSudoku(board))
+board1 = [[".",".",".",".","5",".",".","1","."],
+[".","4",".","3",".",".",".",".","."],
+[".",".",".",".",".","3",".",".","1"],
+["8",".",".",".",".",".",".","2","."],
+[".",".","2",".","7",".",".",".","."],
+[".","1","5",".",".",".",".",".","."],
+[".",".",".",".",".","2",".",".","."],
+[".","2",".","9",".",".",".",".","."],
+[".",".","4",".",".",".",".",".","."]]
+print(isValidSudoku(board1))
