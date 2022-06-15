@@ -16,7 +16,7 @@ def isValidSudoku(board):
     # hash sets for record the states (rows, columns, box)
     rows = defaultdict(set)
     cols = defaultdict(set)
-    boxes = defaultdict(set)    # (r/3, c/3)
+    boxes = defaultdict(set)    # (r/3, c/3), will give index of box ([0,1,2]by[0,1,2])
 
     for r in range(N):
         for c in range(N):
@@ -24,7 +24,7 @@ def isValidSudoku(board):
             if val == ".":
                 continue
 
-            if (val in rows[r]) or (val in cols[c]) or (val in boxes[(r//3, c//3)]):
+            if (val in rows[r]) or (val in cols[c]) or (val in boxes[(r//3, c//3)]):  # in python x//y wil give integer (floor value)
                 return False
             
             cols[c].add(val)
