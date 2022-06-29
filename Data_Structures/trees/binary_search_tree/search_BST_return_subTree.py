@@ -3,13 +3,13 @@
 
 
 # recursive solution...
-def searchBST(root, value):
+def searchBSTr(root, value):
     if root is None or value == root.val:
         return root
     elif value < root.val:
-        return searchBST(root.left,value)
+        return searchBSTr(root.left,value)
     else:
-        return searchBST(root.right, value)
+        return searchBSTr(root.right, value)
 
     # time complexity = O(N)/O(1), average case: O(logN) , space complexity = O(H)
 
